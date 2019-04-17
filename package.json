@@ -12,7 +12,7 @@
     "type-check": "tsc --noEmit",
     "type-check:watch": "yarn type-check -- --watch",
     "build:types": "tsc --emitDeclarationOnly",
-    "build:js:debug": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
+    "build:js:debug": "babel src --out-dir dist --extensions \".ts\" --source-maps inline",
     "build:js": "babel src --out-dir dist --extensions \".ts\"",
     "build": "yarn build:types && yarn build:js",
     "prepublishOnly": "yarn build",

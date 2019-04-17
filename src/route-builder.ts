@@ -1,10 +1,8 @@
-export interface NestedRoutes {
+interface NestedRoutes {
   [key: string]: Route;
 }
 
 export class Route {
-
-
   // still private, but shhh, don't tell anyone
   _path: string;
   _subRoutes?: NestedRoutes;
