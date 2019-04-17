@@ -1,13 +1,12 @@
-interface NestedRoutes {
+export interface NestedRoutes {
   [key: string]: Route;
 }
 
 export class Route {
-  [subRouteKey: string]: Route | string | NestedRoutes | undefined;
 
-  private _path: string;
 
   // still private, but shhh, don't tell anyone
+  _path: string;
   _subRoutes?: NestedRoutes;
   _parent?: Route;
 
@@ -19,7 +18,7 @@ export class Route {
   }
 
   get path() {
-    let fullPath = '/';
+    let fullPath = `/${this._path}`;
 
     if (this._parent) {
       fullPath = `${this._parent.path}/${this._path}`;
@@ -31,6 +30,8 @@ export class Route {
   // resolve(...args: any[]) {
   //   return this._pathBuilder(...args);
   // }
+  // [subRouteKey: string]: Route | string | NestedRoutes | undefined;
+
 }
 
 export function route<TNested extends NestedRoutes = {}>(
@@ -48,8 +49,9 @@ export function route<TNested extends NestedRoutes = {}>(
       let key = keys[i];
       let nestedEntry = subRoutes[key];
 
-      routeEntry[key] = nestedEntry;
       nestedEntry._parent = routeEntry;
+
+      (routeEntry as any)[key] = nestedEntry;
     }
   }
 

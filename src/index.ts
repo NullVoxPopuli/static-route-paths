@@ -1,1 +1,1 @@
-export { route } from './route-builder';
+export { route, Route, NestedRoutes } from './route-builder';
