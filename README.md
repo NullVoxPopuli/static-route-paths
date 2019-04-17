@@ -1,13 +1,13 @@
-# React Action Decorators
+# Static Route Paths
 
-Remove menial event handling
+Depedency-free static route builder that can be used alongside any dynamic routing library to bring sanity to intellisense
 
 ## Install
 
 ```bash
-npm install react-action-decorators
+npm install static-route-paths
 # or
-yarn add react-action-decorators
+yarn add static-route-paths
 ```
 
 ## Example
