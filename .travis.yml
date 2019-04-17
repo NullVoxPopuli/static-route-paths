@@ -11,4 +11,15 @@ before_install:
 cache: yarn
 
 before_script: "yarn install"
+
+jobs:
+  fail_fast: true
+  include:
+  - stage: "Quality"
+    name: "Linting"
+    script: yarn lint:js
+
+  - stage: "Tests"
+
+
 script: "yarn test"
