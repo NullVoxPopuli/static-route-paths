@@ -19,7 +19,7 @@ jobs:
     name: "Linting"
     script: yarn lint:js
 
-  - stage: "Tests"
+  # - stage: "Tests"
 
 
 script: "yarn test"
