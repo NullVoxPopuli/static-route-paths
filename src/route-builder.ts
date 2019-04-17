@@ -10,7 +10,7 @@ export class Route {
 
   // _pathBuilder: (...args: any[]) => string;
 
-  constructor(path: string = '', subRoutes?: NestedRoutes) {
+  constructor(path = '', subRoutes?: NestedRoutes) {
     this._path = path;
     this._subRoutes = subRoutes;
   }
@@ -32,11 +32,31 @@ export class Route {
 
 }
 
+const proxyHandler = {
+  get: function (obj: NestedRoutes, prop: string) {
+    if (obj[prop] instanceof Route) {
+      if ((Object.keys(obj._subRoutes) as any).includes(prop)) {
+        console.log('did we make it?', obj[prop]);
+        return obj[prop].path;
+      }
+    }
+
+    return prop in obj ? obj[prop] : undefined;
+  }
+}
+
 export function route<TNested extends NestedRoutes = {}>(
-  path = '',
+  path: string | TNested = '',
   nestedRoutes?: TNested
 ): Route & TNested {
-  let routeEntry = new Route(path, nestedRoutes);
+  let routeEntry: Route;
+
+  if (typeof path === 'string') {
+    routeEntry = new Route(path, nestedRoutes);
+  } else {
+    routeEntry = new Route('', path);
+  }
+
   let subRoutes = routeEntry._subRoutes;
 
   if (subRoutes) {
@@ -49,7 +69,9 @@ export function route<TNested extends NestedRoutes = {}>(
 
       nestedEntry._parent = routeEntry;
 
-      (routeEntry as any)[key] = nestedEntry;
+
+      (routeEntry as any)[key] = new Proxy(nestedEntry, proxyHandler as any) as any;
+      console.log(key, (routeEntry as any)[key] as any);
     }
   }
 
