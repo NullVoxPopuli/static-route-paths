@@ -19,7 +19,5 @@ jobs:
     name: "Linting"
     script: yarn lint:js
 
-  # - stage: "Tests"
-
 
 script: "yarn test"
