@@ -1,0 +1,35 @@
+{
+  "name": "static-route-paths",
+  "version": "0.0.1",
+  "description": "Static Route builder that can be used alongside dynamic routing libraries to bring sanity to intellisense",
+  "author": "NullVoxPopuli",
+  "license": "MIT",
+  "private": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "homepage": "https://github.com/NullVoxPopuli/static-route-paths",
+  "scripts": {
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "yarn type-check -- --watch",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js:debug": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
+    "build:js": "babel src --out-dir dist --extensions \".ts\"",
+    "build": "yarn build:types && yarn build:js",
+    "prepublishOnly": "yarn build",
+    "test": "mocha --require ts-node/register --reporter spec tests/index.ts"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-typescript": "^7.3.3",
+    "@types/chai": "^4.1.2",
+    "@types/mocha": "^5.2.6",
+    "chai": "^4.1.2",
+    "mocha": "^6.1.3",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.3"
+  }
+}
