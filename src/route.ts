@@ -23,7 +23,7 @@ export class Route {
       // the root route already has a slash,
       // but we need to ensure there is a trailing slash
       if (!parentPath.endsWith('/')) {
-        parentPath = '/'
+        parentPath += '/'
       }
 
       fullPath = `${parentPath}${this._path}`;

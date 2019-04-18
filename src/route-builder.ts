@@ -25,7 +25,6 @@ export function route<TNested extends NestedRoutes = {}>(
       nestedEntry._parent = routeEntry;
 
       (routeEntry as any)[key] = nestedEntry;
-      console.log(key, (routeEntry as any)[key] as any);
     }
   }
 
