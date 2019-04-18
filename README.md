@@ -1,4 +1,7 @@
 # Static Route Paths
+[![Build Status](https://travis-ci.com/NullVoxPopuli/static-route-paths.svg?branch=master)](https://travis-ci.com/NullVoxPopuli/static-route-paths)
+![npm](https://img.shields.io/npm/v/static-route-paths.svg)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a42b248a7f31b8526340/maintainability)](https://codeclimate.com/github/NullVoxPopuli/static-route-paths/maintainability)
 
 Depedency-free static route builder that can be used alongside any dynamic routing library to bring sanity to intellisense
 
