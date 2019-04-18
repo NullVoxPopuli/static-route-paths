@@ -8,6 +8,9 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "homepage": "https://github.com/NullVoxPopuli/static-route-paths",
+  "files": [
+    "dist/**"
+  ],
   "scripts": {
     "type-check": "tsc --noEmit",
     "type-check:watch": "yarn type-check -- --watch",

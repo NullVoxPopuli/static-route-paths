@@ -31,7 +31,7 @@ In order to have intellisense work, we nede to define the tree
 ```ts
 import { route } from 'static-route-paths';
 
-const routes = {
+const routes = route({
   root: route(),
   login: route('login'),
   dashboard: route('dashboard', {
@@ -42,7 +42,7 @@ const routes = {
       edit: route(':id/edit'),
     })
   }),
-}
+})
 ```
 
 ### 2. Getting the strings
@@ -60,6 +60,6 @@ routes.dashboard.blogs.path
 // => /dashboard/blogs
 routes.dashboard.blogs.show.path
 // => /dashboard/blogs/:id
-routes.dashboard.blogs.show.resolve('some-blog-id-or-slug');
+routes.dashboard.blogs.show.with({ id: 'some-blog-id-or-slug' });
 // => /dashboard/blogs/some-blog-id-or-slug
 ```
