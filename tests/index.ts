@@ -28,16 +28,16 @@ describe('route', () => {
   });
 
   describe('resolving path tokens', () => {
-    // let tree = {
-    //   blogs: route('blogs', {
-    //     show: route(':blog_id'),
-    //     edit: route(':blog_id/edit'),
-    //     posts: route('posts', {
-    //       show: route(':post_id'),
-    //       edit: route(':post_id/edit'),
-    //     })
-    //   }),
-    // }
+    let tree = {
+      blogs: route('blogs', {
+        show: route(':blog_id'),
+        edit: route(':blog_id/edit'),
+        posts: route('posts', {
+          show: route(':post_id'),
+          edit: route(':post_id/edit'),
+        })
+      }),
+    }
 
     describe('one level of tokens can be resolved', () => {
       it('errors when no value is given', () => {
