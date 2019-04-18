@@ -1,6 +1,6 @@
 {
   "name": "static-route-paths",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Static Route builder that can be used alongside dynamic routing libraries to bring sanity to intellisense",
   "author": "NullVoxPopuli",
   "license": "MIT",
