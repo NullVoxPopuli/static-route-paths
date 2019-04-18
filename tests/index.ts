@@ -65,14 +65,18 @@ describe('route', () => {
     // temp disabled due to a bug is TS Node
     // https://github.com/TypeStrong/ts-node/issues/820
     describe('nested levels of tokens can be resolved', () => {
-      xit('errors when a value is missing', () => {});
+      it('errors when a value is missing', () => {
+        assert.throws(() => {
+          tree.blogs.show.posts.show.with({ ['blog_id']: 1 });
+        }, `The wrong number of dynamic segments were passed. Expected to have each of [:blog_id, :post_id], but was passed [blog_id]`);
+      });
 
-      xit('replaces the tokens', () => {
-        // const result = tree.blogs.show.posts.show.with({
-        //   blog_id: 1,
-        //   post_id: 'my-post',
-        // });
-        // assert.equal(result, '/blogs/1/posts/my-post');
+      it('replaces the tokens', () => {
+        const result = tree.blogs.show.posts.show.with({
+          blog_id: 1,
+          post_id: 'my-post',
+        });
+        assert.equal(result, '/blogs/1/posts/my-post');
       });
     });
   });

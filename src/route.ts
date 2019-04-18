@@ -1,5 +1,9 @@
 import { extractTokens } from './utils';
 
+// TODO: convert the path to a constructor-time property
+//       may need changes on the route-builder w/r/t when
+//       the parent route is set and when the route-named
+//       properties are set
 export class Route {
   // still private, but shhh, don't tell anyone
   _path: string;
