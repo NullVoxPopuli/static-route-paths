@@ -9,18 +9,19 @@ describe('route', () => {
       let tree = route({
         root: route(),
         a: route('a', {
-          // b: route('b')
+          b: route('b')
         }),
       });
 
       describe('(root) "/"', () => {
-        // it('is an istance of Route', () => assert.ok(tree.root instanceof Route));
-        // it('is the root route', () => assert.equal(tree.root.path, '/'));
+        it('is an istance of Route', () => assert.ok(tree instanceof Route));
+        it('is the root route', () => assert.equal(tree.path, '/'));
+        it('any pathless route is also root', () => assert.equal(tree.root.path, '/'));
       });
 
       describe('(nested) "/a" & "/a/b"', () => {
-        it('renders top-level', () => assert.equal(tree.a as any, '/a'));
-        // it('renders nested', () => assert.equal(tree.a.b.path, '/a/b'));
+        it('renders top-level', () => assert.equal(tree.a.path, '/a'));
+        it('renders nested', () => assert.equal(tree.a.b.path, '/a/b'));
       });
 
     });
