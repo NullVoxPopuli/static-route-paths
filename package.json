@@ -19,7 +19,7 @@
     "build:js": "babel src --out-dir dist --extensions \".ts\"",
     "build": "yarn build:types && yarn build:js",
     "prepublishOnly": "yarn build",
-    "test": "mocha --require ts-node/register --reporter spec tests/index.ts",
+    "test": "mocha --require ./tests/setup.js --reporter spec tests/*-test.ts",
     "lint:js": "yarn eslint . --ext .ts"
   },
   "devDependencies": {
@@ -29,6 +29,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-typescript": "^7.3.3",
+    "@babel/register": "^7.4.0",
     "@types/chai": "^4.1.2",
     "@types/mocha": "^5.2.6",
     "@typescript-eslint/eslint-plugin": "^1.6.0",
