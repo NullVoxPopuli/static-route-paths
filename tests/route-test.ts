@@ -44,7 +44,11 @@ describe('route', () => {
       it('shows tokens', () =>
         assert.equal(tree.blogs.show.path, '/blogs/:blog_id'));
 
-      // it('shows nested tokens', () => assert.equal(tree.blogs.show.path, '/blogs/:blog_id'));
+      it('shows nested tokens', () =>
+        assert.equal(
+          tree.blogs.show.posts.edit.path,
+          '/blogs/:blog_id/posts/:post_id/edit'
+        ));
     });
 
     describe('one level of tokens can be resolved', () => {
@@ -72,8 +76,8 @@ describe('route', () => {
 
       it('replaces the tokens', () => {
         const result = tree.blogs.show.posts.show.with({
-          blog_id: 1,
-          post_id: 'my-post',
+          ['blog_id']: 1,
+          ['post_id']: 'my-post',
         });
         assert.equal(result, '/blogs/1/posts/my-post');
       });
