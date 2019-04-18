@@ -38,9 +38,16 @@ export class Route {
     return fullPath;
   }
 
-  // resolve(...args: any[]) {
-  //   return this._pathBuilder(...args);
-  // }
-  // [subRouteKey: string]: Route | string | NestedRoutes | undefined;
+  with(tokens: any = {}) {
+    let path = this.path;
+
+    Object.keys(tokens).forEach(token => {
+      let value = tokens[token];
+
+      path.replace(`${token}`, value);
+    });
+
+    return path;
+  }
 
 }
