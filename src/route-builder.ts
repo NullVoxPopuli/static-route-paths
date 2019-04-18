@@ -1,6 +1,6 @@
-import { INestedRoutes, Route } from './route';
+import { Route } from './route';
 
-export function route<TNested extends INestedRoutes = {}>(
+export function route<TNested extends Dict<Route> = {}>(
   path: string | TNested = '',
   nestedRoutes?: TNested
 ): Route & TNested {

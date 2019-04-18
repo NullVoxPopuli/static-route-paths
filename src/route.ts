@@ -1,22 +1,14 @@
 import { extractTokens } from './utils';
 
-export interface INestedRoutes {
-  [key: string]: Route;
-}
-
-interface IParams {
-  [key: string]: string | number;
-}
-
 export class Route {
   // still private, but shhh, don't tell anyone
   _path: string;
-  _subRoutes?: INestedRoutes;
+  _subRoutes?: Dict<Route>;
   _parent?: Route;
 
   // _pathBuilder: (...args: any[]) => string;
 
-  constructor(path = '', subRoutes?: INestedRoutes) {
+  constructor(path = '', subRoutes?: Dict<Route>) {
     this._path = path;
     this._subRoutes = subRoutes;
   }
@@ -44,7 +36,7 @@ export class Route {
     return fullPath;
   }
 
-  with(params: IParams = {}): string {
+  with(params: Dict<string | number> = {}): string {
     let path = this.path;
     let tokens = extractTokens(path);
     let detectedParams = Object.keys(params);
