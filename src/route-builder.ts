@@ -1,6 +1,6 @@
-import { NestedRoutes, Route } from "./route";
+import { INestedRoutes, Route } from './route';
 
-export function route<TNested extends NestedRoutes = {}>(
+export function route<TNested extends INestedRoutes = {}>(
   path: string | TNested = '',
   nestedRoutes?: TNested
 ): Route & TNested {
@@ -28,5 +28,5 @@ export function route<TNested extends NestedRoutes = {}>(
     }
   }
 
-  return routeEntry as  Route & TNested;
+  return routeEntry as Route & TNested;
 }

@@ -2,7 +2,7 @@ import { assert } from 'chai';
 import { describe, it, xit } from 'mocha';
 
 import { route, Route } from '../src';
-import { extractTokens } from '../src/route';
+import { extractTokens } from '../src/utils';
 
 describe('route', () => {
   describe('property access', () => {
@@ -42,7 +42,8 @@ describe('route', () => {
     });
 
     describe('paths', () => {
-      it('shows tokens', () => assert.equal(tree.blogs.show.path, '/blogs/:blog_id'));
+      it('shows tokens', () =>
+        assert.equal(tree.blogs.show.path, '/blogs/:blog_id'));
 
       // it('shows nested tokens', () => assert.equal(tree.blogs.show.path, '/blogs/:blog_id'));
     });
@@ -51,11 +52,11 @@ describe('route', () => {
       it('errors when no value is given', () => {
         assert.throws(() => {
           tree.blogs.show.with();
-        }, `The wrong number of dynamic segments were passed. Expected to have each of [:blog_id], but was passed []`)
+        }, `The wrong number of dynamic segments were passed. Expected to have each of [:blog_id], but was passed []`);
       });
 
       it('replaces the token', () => {
-        const result = tree.blogs.show.with({ blog_id: 1 });
+        const result = tree.blogs.show.with({ ['blog_id']: 1 });
 
         assert.equal(result, '/blogs/1');
       });
@@ -87,10 +88,16 @@ describe('Unit | extractTokens', () => {
     assert.deepEqual(extractTokens('/protected/:blogId'), [':blogId']));
 
   it('has two tokens', () =>
-    assert.deepEqual(extractTokens('/:blogId/:postId'), [':blogId', ':postId']));
+    assert.deepEqual(extractTokens('/:blogId/:postId'), [
+      ':blogId',
+      ':postId',
+    ]));
 
   it('has two tokens with a trailing slash', () =>
-    assert.deepEqual(extractTokens('/:blogId/:postId/'), [':blogId', ':postId']));
+    assert.deepEqual(extractTokens('/:blogId/:postId/'), [
+      ':blogId',
+      ':postId',
+    ]));
 
   it('has two tokens without surrounding slashes', () =>
     assert.deepEqual(extractTokens(':blogId/:postId'), [':blogId', ':postId']));

@@ -1,21 +1,27 @@
-export interface NestedRoutes {
+import { extractTokens } from './utils';
+
+export interface INestedRoutes {
   [key: string]: Route;
+}
+
+interface IParams {
+  [key: string]: string | number;
 }
 
 export class Route {
   // still private, but shhh, don't tell anyone
   _path: string;
-  _subRoutes?: NestedRoutes;
+  _subRoutes?: INestedRoutes;
   _parent?: Route;
 
   // _pathBuilder: (...args: any[]) => string;
 
-  constructor(path = '', subRoutes?: NestedRoutes) {
+  constructor(path = '', subRoutes?: INestedRoutes) {
     this._path = path;
     this._subRoutes = subRoutes;
   }
 
-  get path() {
+  get path(): string {
     let fullPath = `${this._path}`;
 
     if (this._parent) {
@@ -38,7 +44,7 @@ export class Route {
     return fullPath;
   }
 
-  with(params: any = {}) {
+  with(params: IParams = {}): string {
     let path = this.path;
     let tokens = extractTokens(path);
     let detectedParams = Object.keys(params);
@@ -51,31 +57,14 @@ export class Route {
       );
     }
 
-    detectedParams.forEach((token) => {
-      let value = params[token];
+    detectedParams.forEach(
+      (token): void => {
+        let value = params[token];
 
-      console.log(token, value, path);
-      path = path.replace(`:${token}`, value);
-    });
+        path = path.replace(`:${token}`, `${value}`);
+      }
+    );
 
     return path;
   }
-}
-
-const TOKEN_REGEX = /:[\w_]+\/?/gi;
-export function extractTokens(path: string): string[] {
-  const matches = path.match(TOKEN_REGEX);
-
-  if (!matches) {
-    return [];
-  }
-
-  return matches.map((match) => {
-    // example:
-    // match: :blogId/
-    //        :postId
-    //        :Post_id
-
-    return match.replace(/\//g, '');
-  });
 }

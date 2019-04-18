@@ -9,14 +9,13 @@ module.exports = {
   },
   plugins: [
     'prettier',
-    'typescript',
     '@typescript-eslint',
   ],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'prettier',
-    'prettier/@typecsript-eslint'
+    'prettier/@typescript-eslint'
   ],
 
   // 0 = off, 1 = warn, 2 = error
@@ -32,6 +31,15 @@ module.exports = {
     'prettier/prettier': 'error',
   },
   overrides: [
+    // tests
+    {
+      files: [
+        'tests/**',
+      ],
+      rules: {
+        '@typescript-eslint/explicit-function-return-type': 'off',
+      }
+    },
     // type definitions
     {
       files: [
