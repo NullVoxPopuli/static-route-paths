@@ -23,7 +23,7 @@ export class Route {
       // the root route already has a slash,
       // but we need to ensure there is a trailing slash
       if (!parentPath.endsWith('/')) {
-        parentPath += '/'
+        parentPath += '/';
       }
 
       fullPath = `${parentPath}${this._path}`;
@@ -38,16 +38,44 @@ export class Route {
     return fullPath;
   }
 
-  with(tokens: any = {}) {
+  with(params: any = {}) {
     let path = this.path;
+    let tokens = extractTokens(path);
+    let detectedParams = Object.keys(params);
 
-    Object.keys(tokens).forEach(token => {
-      let value = tokens[token];
+    if (detectedParams.length !== tokens.length) {
+      throw new Error(
+        `The wrong number of dynamic segments were passed. Expected to have each of [${tokens.join(
+          ', '
+        )}], but was passed [${detectedParams.join(', ')}]`
+      );
+    }
 
-      path.replace(`${token}`, value);
+    detectedParams.forEach((token) => {
+      let value = params[token];
+
+      console.log(token, value, path);
+      path = path.replace(`:${token}`, value);
     });
 
     return path;
   }
+}
 
+const TOKEN_REGEX = /:[\w_]+\/?/gi;
+export function extractTokens(path: string): string[] {
+  const matches = path.match(TOKEN_REGEX);
+
+  if (!matches) {
+    return [];
+  }
+
+  return matches.map((match) => {
+    // example:
+    // match: :blogId/
+    //        :postId
+    //        :Post_id
+
+    return match.replace(/\//g, '');
+  });
 }
