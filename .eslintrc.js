@@ -21,7 +21,6 @@ module.exports = {
   // 0 = off, 1 = warn, 2 = error
   rules: {
     // typescript
-    '@typescript-eslint/interface-name-prefix': ['error', 'always'],
     '@typescript-eslint/explicit-member-accessibility': 'off', // private fields are coming to native JS classes
 
     // docs
