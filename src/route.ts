@@ -4,15 +4,15 @@ import { extractTokens } from './utils';
 //       may need changes on the route-builder w/r/t when
 //       the parent route is set and when the route-named
 //       properties are set
-export class Route {
+export class Route<DynamicSegments extends Dict<string | number | undefined | null> = {}> {
   // still private, but shhh, don't tell anyone
   _path: string;
-  _subRoutes?: Dict<Route>;
-  _parent?: Route;
+  _subRoutes?: Dict<Route<any>>;
+  _parent?: Route<any>;
 
   // _pathBuilder: (...args: any[]) => string;
 
-  constructor(path = '', subRoutes?: Dict<Route>) {
+  constructor(path = '', subRoutes?: Dict<Route<any>>) {
     this._path = path;
     this._subRoutes = subRoutes;
   }
@@ -40,10 +40,10 @@ export class Route {
     return fullPath;
   }
 
-  with(params: Dict<string | number> = {}): string {
+  with(params: DynamicSegments): string {
     let path = this.path;
     let tokens = extractTokens(path);
-    let detectedParams = Object.keys(params);
+    let detectedParams = Object.keys(params || {});
 
     if (detectedParams.length !== tokens.length) {
       throw new Error(
