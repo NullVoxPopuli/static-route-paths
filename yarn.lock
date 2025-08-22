@@ -1087,11 +1087,6 @@ array-unique@^0.3.2:
   resolved "https://registry.yarnpkg.com/array-unique/-/array-unique-0.3.2.tgz#a894b75d4bc4f6cd679ef3244a9fd8f46ae2d428"
   integrity sha1-qJS3XUvE9s1nnvMkSp/Y9Gri1Cg=
 
-assertion-error@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/assertion-error/-/assertion-error-2.0.1.tgz#f641a196b335690b1070bf00b6e7593fec190bf7"
-  integrity sha512-Izi8RQcffqCeNVgFigKli1ssklIbpHnCYc6AknXGYoB6grJqyeby7jv12JUQgmTAnIDnbck1uxksT4dzN3PWBA==
-
 assign-symbols@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/assign-symbols/-/assign-symbols-1.0.0.tgz#59667f41fadd4f20ccbc2bb96b8d4f7f78ec0367"
@@ -1241,16 +1236,10 @@ caniuse-lite@^1.0.30000960:
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000960.tgz#ec48297037e5607f582f246ae7b12bee66a78999"
   integrity sha512-7nK5qs17icQaX6V3/RYrJkOsZyRNnroA4+ZwxaKJzIKy+crIy0Mz5CBlLySd2SNV+4nbUZeqeNfiaEieUBu3aA==
 
-chai@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/chai/-/chai-5.0.0.tgz#da1ae496fdac30e97062cbd59e6e2f7bb4c78cc0"
-  integrity sha512-HO5p0oEKd5M6HEcwOkNAThAE3j960vIZvVcc0t2tI06Dd0ATu69cEnMB2wOhC5/ZyQ6m67w3ePjU/HzXsSsdBA==
-  dependencies:
-    assertion-error "^2.0.1"
-    check-error "^2.0.0"
-    deep-eql "^5.0.1"
-    loupe "^3.0.0"
-    pathval "^2.0.0"
+chai@^6.0.0:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/chai/-/chai-6.0.1.tgz#88c2b4682fb56050647e222d2cf9d6772f2607b3"
+  integrity sha512-/JOoU2//6p5vCXh00FpNgtlw0LjvhGttaWc+y7wpW9yjBm3ys0dI8tSKZxIOgNruz5J0RleccatSIC3uxEZP0g==
 
 chalk@^2.0.0:
   version "2.4.2"
@@ -1268,11 +1257,6 @@ chalk@^4.0.0, chalk@^4.1.0:
   dependencies:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
-
-check-error@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/check-error/-/check-error-2.0.0.tgz#589a4f201b6256fd93a2d165089fe43d2676d8c6"
-  integrity sha512-tjLAOBHKVxtPoHe/SA7kNOMvhCRdCJ3vETdeY0RuAc9popf+hyaSV6ZEg9hr4cpWF7jmo/JSWEnLDrnijS9Tog==
 
 chokidar@^2.0.4:
   version "2.1.5"
@@ -1491,11 +1475,6 @@ decode-uri-component@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
   integrity sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
-
-deep-eql@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/deep-eql/-/deep-eql-5.0.1.tgz#21ea2c0d561a4d08cdd99c417ac584e0fb121385"
-  integrity sha512-nwQCf6ne2gez3o1MxWifqkciwt0zhl0LO1/UwVu4uMBuPmflWM4oQ70XMqHqnBJA+nhzncaqL9HVL6KkHJ28lw==
 
 deep-extend@^0.6.0:
   version "0.6.0"
@@ -1978,11 +1957,6 @@ get-caller-file@^2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-2.0.5.tgz#4f94412a82db32f36e3b0b9741f8a97feb031f7e"
   integrity sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==
-
-get-func-name@^2.0.1:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/get-func-name/-/get-func-name-2.0.2.tgz#0d7cf20cd13fda808669ffa88f4ffc7a3943fc41"
-  integrity sha512-8vXOvuE167CtIc3OyItco7N/dpRtBbYOsPsXCz7X/PMnlGjYjSGuZJgM1Y7mmew7BKf9BqvLX2tnOVy1BBUsxQ==
 
 get-stream@^6.0.0, get-stream@^6.0.1:
   version "6.0.1"
@@ -2552,13 +2526,6 @@ loose-envify@^1.0.0:
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
 
-loupe@^3.0.0:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/loupe/-/loupe-3.0.1.tgz#3b66a94887d7af003946c147cc664c3c9233270e"
-  integrity sha512-phbaE2fPsRe8cQ7Cy5Ze5p9JLmpiaqGT45RCUWYYjZgYPBoeC3vqrlYPj4BQ82ln60ZtM3Iq00PPC3FyUdS4Kw==
-  dependencies:
-    get-func-name "^2.0.1"
-
 lru-cache@^10.2.0:
   version "10.4.3"
   resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-10.4.3.tgz#410fc8a17b70e598013df257c2446b7f3383f119"
@@ -3076,11 +3043,6 @@ path-type@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/path-type/-/path-type-4.0.0.tgz#84ed01c0a7ba380afe09d90a8c180dcd9d03043b"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
-
-pathval@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/pathval/-/pathval-2.0.0.tgz#7e2550b422601d4f6b8e26f1301bc8f15a741a25"
-  integrity sha512-vE7JKRyES09KiunauX7nd2Q9/L7lhok4smP9RZTDeD4MVs72Dp2qNFVz39Nz5a0FVEW0BJR6C0DYrq6unoziZA==
 
 picocolors@^1.0.0:
   version "1.0.0"
