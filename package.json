@@ -23,13 +23,13 @@
     "lint:js": "yarn eslint . --ext .ts"
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.3",
-    "@babel/core": "^7.4.3",
+    "@babel/cli": "^8.0.0",
+    "@babel/core": "^8.0.0",
     "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
-    "@babel/preset-typescript": "^7.3.3",
-    "@babel/register": "^7.4.0",
+    "@babel/preset-env": "^8.0.0",
+    "@babel/preset-typescript": "^8.0.0",
+    "@babel/register": "^8.0.0",
     "@types/chai": "^5.0.0",
     "@types/mocha": "^10.0.0",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
